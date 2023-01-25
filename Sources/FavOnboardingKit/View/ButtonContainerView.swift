@@ -10,6 +10,8 @@ import UIKit
 
 final class ButtonContainerView: UIView {
     private var buttonTintColor: UIColor
+    var nextButtonTapped: () -> Void = {}
+    var getStartedButtonTapped: () -> Void = {}
     
     private lazy var nextButton: UIButton = {
         let button = UIButton()
@@ -75,11 +77,11 @@ final class ButtonContainerView: UIView {
     
     @objc
     private func nextSlide() {
-        
+        nextButtonTapped()
     }
     
     @objc
     private func getStarted() {
-        
+        getStartedButtonTapped()
     }
 }
