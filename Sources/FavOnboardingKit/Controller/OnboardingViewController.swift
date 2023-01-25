@@ -49,6 +49,7 @@ final class OnboardingViewController: UIViewController {
     }
     
     private func setupViews() {
+        view.backgroundColor = .white
         view.addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
