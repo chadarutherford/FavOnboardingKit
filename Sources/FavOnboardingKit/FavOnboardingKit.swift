@@ -4,8 +4,8 @@ public final class FavOnboardingKit {
     private let slides: [Slide]
     private let tintColor: UIColor
     
-    private var onboardingViewController: OnboardingViewController = {
-        let controller = OnboardingViewController()
+    private lazy var onboardingViewController: OnboardingViewController = {
+        let controller = OnboardingViewController(slides: slides, tintColor: tintColor)
         controller.modalTransitionStyle = .crossDissolve
         controller.modalPresentationStyle = .fullScreen
         return controller

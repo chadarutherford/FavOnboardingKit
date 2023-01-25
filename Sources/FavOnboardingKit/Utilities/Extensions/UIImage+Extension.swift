@@ -7,10 +7,15 @@
 
 import UIKit
 
-public extension UIImage {
-    static let slide1 = UIImage(named: "imSlide1") ?? UIImage()
-    static let slide2 = UIImage(named: "imSlide2") ?? UIImage()
-    static let slide3 = UIImage(named: "imSlide3") ?? UIImage()
-    static let slide4 = UIImage(named: "imSlide4") ?? UIImage()
-    static let slide5 = UIImage(named: "imSlide5") ?? UIImage()
+extension UIImage {
+    static let slide1 = image(at: "imSlide1")
+    static let slide2 = image(at: "imSlide1")
+    static let slide3 = image(at: "imSlide1")
+    static let slide4 = image(at: "imSlide1")
+    static let slide5 = image(at: "imSlide1")
+    
+    static func image(at filePath: String) -> UIImage {
+        let path = Bundle.main.path(forResource: filePath, ofType: "jpeg") ?? ""
+        return UIImage(contentsOfFile: path) ?? UIImage()
+    }
 }
