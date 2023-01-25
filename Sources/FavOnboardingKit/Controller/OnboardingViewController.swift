@@ -5,12 +5,32 @@
 //  Created by Chad Rutherford on 1/25/23.
 //
 
+import SnapKit
 import UIKit
 
 final class OnboardingViewController: UIViewController {
     
     private let slides: [Slide]
     private let tintColor: UIColor
+    
+    private lazy var transitionView: TransitionView = {
+        let view = TransitionView()
+        return view
+    }()
+    
+    private lazy var buttonContainerView: ButtonContainerView = {
+        let containerView = ButtonContainerView()
+        return containerView
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            transitionView,
+            buttonContainerView
+        ])
+        stackView.axis = .vertical
+        return stackView
+    }()
     
     init(slides: [Slide], tintColor: UIColor) {
         self.slides = slides
@@ -25,7 +45,19 @@ final class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        setupViews()
+    }
+    
+    private func setupViews() {
+        view.addSubview(stackView)
+        
+        stackView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
+        
+        buttonContainerView.snp.makeConstraints { make in
+            make.height.equalTo(120)
+        }
     }
 }
 
