@@ -1,6 +1,9 @@
 import UIKit
 
 public final class FavOnboardingKit {
+    private let slides: [Slide]
+    private let tintColor: UIColor
+    
     private var onboardingViewController: OnboardingViewController = {
         let controller = OnboardingViewController()
         controller.modalTransitionStyle = .crossDissolve
@@ -8,8 +11,9 @@ public final class FavOnboardingKit {
         return controller
     }()
     
-    public init() {
-        
+    public init(slides: [Slide], tintColor: UIColor) {
+        self.slides = slides
+        self.tintColor = tintColor
     }
     
     public func launchOnboarding(rootVC: UIViewController) {
