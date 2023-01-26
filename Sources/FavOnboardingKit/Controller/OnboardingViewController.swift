@@ -54,6 +54,16 @@ final class OnboardingViewController: UIViewController {
         setupViews()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        transitionView.start()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        transitionView.stop()
+    }
+    
     private func setupViews() {
         view.backgroundColor = .white
         view.addSubview(stackView)

@@ -9,6 +9,9 @@ import SnapKit
 import UIKit
 
 final class TransitionView: UIView {
+    
+    private var timer: DispatchSourceTimer?
+    
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
@@ -62,6 +65,25 @@ final class TransitionView: UIView {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func start() {
+        buildTimerIfNeeded()
+        timer?.resume()
+    }
+    
+    func stop() {
+        timer?.cancel()
+        timer = nil
+    }
+    
+    private func buildTimerIfNeeded() {
+        guard timer == nil else { return }
+        timer = DispatchSource.makeTimerSource()
+        timer?.schedule(deadline: .now(), repeating: .seconds(3), leeway: .seconds(1))
+        timer?.setEventHandler {
+            print("Show Next")
+        }
     }
     
     private func layout() {
