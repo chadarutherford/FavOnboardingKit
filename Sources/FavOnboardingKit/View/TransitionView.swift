@@ -16,7 +16,6 @@ final class TransitionView: UIView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
-        view.backgroundColor = .systemMint
         return view
     }()
     
