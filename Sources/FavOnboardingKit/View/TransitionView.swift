@@ -91,13 +91,18 @@ final class TransitionView: UIView {
     private func showNext() {
         let nextImage: UIImage
         let nextTitle: String
+        let nextBarView: AnimatedBarView
+        
         if slides.indices.contains(index + 1) {
             nextImage = slides[index + 1].image
             nextTitle = slides[index + 1].title
+            nextBarView = barViews[index + 1]
             index += 1
         } else {
+            barViews.forEach { $0.reset() }
             nextImage = slides[0].image
             nextTitle = slides[0].title
+            nextBarView = barViews[0]
             index = 0
         }
         UIView.transition(with: imageView,
@@ -107,6 +112,7 @@ final class TransitionView: UIView {
         }
         
         titleView.setTitle(nextTitle)
+        nextBarView.startAnimating()
     }
     
     private func layout() {
@@ -127,5 +133,21 @@ final class TransitionView: UIView {
         imageView.snp.makeConstraints { make in
             make.height.equalTo(stackView.snp.height).multipliedBy(0.8)
         }
+    }
+    
+    func handleTap(direction: Direction) {
+        switch direction {
+        case .left:
+            barViews[index].reset()
+            if barViews.indices.contains(index - 1) {
+                barViews[index - 1].reset()
+            }
+            index -= 2
+        case .right:
+            barViews[index].complete()
+        }
+        timer?.cancel()
+        timer = nil
+        start()
     }
 }
