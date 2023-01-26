@@ -22,7 +22,7 @@ final class TransitionView: UIView {
     private lazy var barViews: [AnimatedBarView] = {
         var views = [AnimatedBarView]()
         slides.forEach { _ in
-            let view = AnimatedBarView()
+            let view = AnimatedBarView(tintColor: viewTintColor)
             views.append(view)
         }
         return views
