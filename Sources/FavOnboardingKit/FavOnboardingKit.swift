@@ -8,6 +8,7 @@ public protocol FavOnboardingKitDelegate: AnyObject {
 public final class FavOnboardingKit {
     private let slides: [Slide]
     private let tintColor: UIColor
+    private var rootVC: UIViewController?
     public weak var delegate: FavOnboardingKitDelegate?
     
     private lazy var onboardingViewController: OnboardingViewController = {
@@ -29,10 +30,13 @@ public final class FavOnboardingKit {
     }
     
     public func launchOnboarding(rootVC: UIViewController) {
+        self.rootVC = rootVC
         rootVC.showDetailViewController(onboardingViewController, sender: self)
     }
     
     public func dismissOnboarding() {
-        
+        if rootVC?.presentedViewController == onboardingViewController {
+            onboardingViewController.dismiss(animated: true)
+        }
     }
 }
