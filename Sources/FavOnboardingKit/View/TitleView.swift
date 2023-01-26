@@ -15,6 +15,7 @@ final class TitleView: UIView {
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.textColor = .black
         return label
     }()
     
