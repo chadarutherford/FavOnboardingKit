@@ -91,11 +91,14 @@ final class TransitionView: UIView {
     
     private func showNext() {
         let nextImage: UIImage
+        let nextTitle: String
         if slides.indices.contains(index + 1) {
             nextImage = slides[index + 1].image
+            nextTitle = slides[index + 1].title
             index += 1
         } else {
             nextImage = slides[0].image
+            nextTitle = slides[0].title
             index = 0
         }
         UIView.transition(with: imageView,
@@ -103,6 +106,8 @@ final class TransitionView: UIView {
                           options: .transitionCrossDissolve) {
             self.imageView.image = nextImage
         }
+        
+        titleView.setTitle(nextTitle)
     }
     
     private func layout() {

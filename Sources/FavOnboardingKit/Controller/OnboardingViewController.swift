@@ -93,10 +93,10 @@ struct OnboardingViewControllerPreviews: PreviewProvider {
         func makeUIViewController(context: UIViewControllerRepresentableContext<OnboardingViewControllerPreviews.ContainerView>) -> UIViewController {
             let slides : [Slide] = [
                 .init(image: UIImage.slide1, title: "Personalized offers at 40,000+ places"),
-                .init(image: UIImage.slide1, title: "Stack your rewards every time you pay"),
-                .init(image: UIImage.slide1, title: "Enjoy now, FavePay Later"),
-                .init(image: UIImage.slide1, title: "Earn cashback with your physical card"),
-                .init(image: UIImage.slide1, title: "Save and earn cashback with Deals or eCards")
+                .init(image: UIImage.slide2, title: "Stack your rewards every time you pay"),
+                .init(image: UIImage.slide3, title: "Enjoy now, FavePay Later"),
+                .init(image: UIImage.slide4, title: "Earn cashback with your physical card"),
+                .init(image: UIImage.slide5, title: "Save and earn cashback with Deals or eCards")
 
             ]
             return OnboardingViewController(slides: slides,

@@ -8,6 +8,16 @@
 import UIKit
 
 final class TitleView: UIView {
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "ArialRoundedMTBold", size: 28)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
@@ -19,6 +29,16 @@ final class TitleView: UIView {
     }
     
     private func layout() {
-        backgroundColor = .systemTeal
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(snp.top).offset(24)
+            make.bottom.equalTo(snp.bottom).offset(-36)
+            make.leading.equalTo(snp.leading).offset(36)
+            make.trailing.equalTo(snp.trailing).offset(-36)
+        }
+    }
+    
+    func setTitle(_ text: String?) {
+        titleLabel.text = text
     }
 }
