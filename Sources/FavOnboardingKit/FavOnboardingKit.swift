@@ -17,6 +17,9 @@ public final class FavOnboardingKit {
         controller.nextButtonTapped = { [weak self] index in
             self?.delegate?.nextButtonTapped(atIndex: index)
         }
+        controller.getStartedButtonTapped = { 
+            self.delegate?.getStartedButtonTapped()
+        }
         return controller
     }()
     
