@@ -28,9 +28,7 @@ final class OnboardingViewController: UIViewController {
             self.nextButtonTapped(self.transitionView.slideIndex)
             self.transitionView.handleTap(direction: .right)
         }
-        containerView.getStartedButtonTapped = {
-            debugPrint("Get Started")
-        }
+        containerView.getStartedButtonTapped = getStartedButtonTapped
         return containerView
     }()
     
