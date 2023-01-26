@@ -9,16 +9,16 @@ import SnapKit
 import UIKit
 
 final class ButtonContainerView: UIView {
-    private var buttonTintColor: UIColor
+    private var viewTintColor: UIColor
     var nextButtonTapped: () -> Void = {}
     var getStartedButtonTapped: () -> Void = {}
     
     private lazy var nextButton: UIButton = {
         let button = UIButton()
         button.setTitle("Next", for: .normal)
-        button.setTitleColor(buttonTintColor, for: .normal)
+        button.setTitleColor(viewTintColor, for: .normal)
         button.titleLabel?.font = UIFont(name: "ArialRoundedMTBold", size: 16)
-        button.layer.borderColor = buttonTintColor.cgColor
+        button.layer.borderColor = viewTintColor.cgColor
         button.layer.borderWidth = 2
         button.layer.masksToBounds = false
         button.layer.cornerRadius = 12
@@ -33,8 +33,8 @@ final class ButtonContainerView: UIView {
         button.titleLabel?.font = UIFont(name: "ArialRoundedMTBold", size: 16)
         button.layer.masksToBounds = false
         button.layer.cornerRadius = 12
-        button.backgroundColor = buttonTintColor
-        button.layer.shadowColor = buttonTintColor.cgColor
+        button.backgroundColor = viewTintColor
+        button.layer.shadowColor = viewTintColor.cgColor
         button.layer.shadowOpacity = 0.5
         button.layer.shadowOffset = .init(width: 4, height: 4)
         button.layer.shadowRadius = 8
@@ -53,7 +53,7 @@ final class ButtonContainerView: UIView {
     }()
     
     init(buttonTintColor: UIColor) {
-        self.buttonTintColor = buttonTintColor
+        self.viewTintColor = buttonTintColor
         super.init(frame: .zero)
         layout()
     }

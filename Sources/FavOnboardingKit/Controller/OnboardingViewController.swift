@@ -14,7 +14,7 @@ final class OnboardingViewController: UIViewController {
     private let tintColor: UIColor
     
     private lazy var transitionView: TransitionView = {
-        let view = TransitionView()
+        let view = TransitionView(slides: slides, tintColor: tintColor)
         return view
     }()
     
