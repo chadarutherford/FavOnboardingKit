@@ -2,6 +2,9 @@
 
 FavOnboardingKit provides an onboarding flow that is simple and easy to implement.
 
+[![Swift Version][swift-image]][swift-url]
+[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
+
 ## Contents
 
 - [Requirements](#requirements)
@@ -113,3 +116,7 @@ class ViewController: UIViewController, FavOnboardingKitDelegate {
 ## Credits
 
 - Chad Rutherford
+
+
+[swift-image]: https://img.shields.io/badge/swift-5.7-green.svg
+[swift-url]: https://swift.org/
